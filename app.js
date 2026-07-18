@@ -96,31 +96,31 @@ form.addEventListener('submit', async (event) => {
   summaryBox.innerHTML = '<p>Generating your AI coach response...</p>';
   coachBox.innerHTML = '<p>Checking the coaching prompt...</p>';
 
+  let plan = localPlan;
+
   try {
-    const response = await fetch('/api/plan', {
+    const response = await fetch('./api/plan', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     });
 
-    const data = await response.json();
-    const plan = {
-      ...localPlan,
-      summary: `<h3>${localPlan.title}</h3><p><strong>AI response:</strong> ${data.summary}</p>${localPlan.summary}`,
-      coach: `<p>${data.summary}</p><p><strong>Mode:</strong> ${data.mode}</p>`
-    };
-
-    summaryBox.innerHTML = plan.summary;
-    coachBox.innerHTML = plan.coach;
-    instructionsBox.textContent = systemPrompt;
-    savePlan(plan);
+    if (response.ok) {
+      const data = await response.json();
+      plan = {
+        ...localPlan,
+        summary: `<h3>${localPlan.title}</h3><p><strong>AI response:</strong> ${data.summary}</p>${localPlan.summary}`,
+        coach: `<p>${data.summary}</p><p><strong>Mode:</strong> ${data.mode}</p>`
+      };
+    }
   } catch (error) {
-    summaryBox.innerHTML = localPlan.summary;
-    coachBox.innerHTML = localPlan.coach;
-    instructionsBox.textContent = systemPrompt;
-    savePlan(localPlan);
+    plan = localPlan;
   }
 
+  summaryBox.innerHTML = plan.summary;
+  coachBox.innerHTML = plan.coach;
+  instructionsBox.textContent = systemPrompt;
+  savePlan(plan);
   form.reset();
 });
 
