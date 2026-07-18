@@ -30,9 +30,9 @@ The app uses the OpenAI Chat Completions API when an API key is available, and o
 - Vercel-ready static deployment structure
 
 ## Screenshots
-1. Landing page and planning form
-2. Generated plan and coaching card
-3. Saved plans panel showing recently created study plans
+1. ![Landing page and planning form](screenshots/landing-page.svg)
+2. ![Generated plan and coaching card](screenshots/ai-coach-output.svg)
+3. ![Saved plans panel](screenshots/saved-plans.svg)
 
 ## How to run locally
 1. Install Node.js.

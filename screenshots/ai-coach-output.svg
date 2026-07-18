@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#07111f"/>
+  <rect x="60" y="60" width="1080" height="600" rx="24" fill="#101c30" stroke="#2b3d5b" stroke-width="2"/>
+  <rect x="110" y="120" width="980" height="180" rx="20" fill="#16253e"/>
+  <text x="145" y="175" fill="#f3f7ff" font-family="Segoe UI, Arial" font-size="34">AI coach guidance</text>
+  <text x="145" y="225" fill="#9ab0d5" font-family="Segoe UI, Arial" font-size="24">A calm plan is ready. Start with one short setup block, then work in focused sprints.</text>
+  <text x="145" y="265" fill="#9ab0d5" font-family="Segoe UI, Arial" font-size="24">Mode: fallback</text>
+  <rect x="110" y="340" width="450" height="220" rx="20" fill="#16253e"/>
+  <rect x="610" y="340" width="480" height="220" rx="20" fill="#16253e"/>
+  <text x="145" y="390" fill="#59d0ff" font-family="Segoe UI, Arial" font-size="24">Study plan preview</text>
+  <text x="145" y="440" fill="#f3f7ff" font-family="Segoe UI, Arial" font-size="22">• Review key tasks</text>
+  <text x="145" y="480" fill="#f3f7ff" font-family="Segoe UI, Arial" font-size="22">• Lock in one session</text>
+  <text x="145" y="520" fill="#f3f7ff" font-family="Segoe UI, Arial" font-size="22">• End with a clear next step</text>
+  <text x="645" y="390" fill="#59d0ff" font-family="Segoe UI, Arial" font-size="24">Saved plans</text>
+  <text x="645" y="440" fill="#f3f7ff" font-family="Segoe UI, Arial" font-size="22">Math • 2 days to go</text>
+  <text x="645" y="480" fill="#f3f7ff" font-family="Segoe UI, Arial" font-size="22">History • 5 days to go</text>
+</svg>

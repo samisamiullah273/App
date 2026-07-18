@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#07111f"/>
+  <rect x="40" y="40" width="1120" height="640" rx="24" fill="#101c30" stroke="#2b3d5b" stroke-width="2"/>
+  <rect x="80" y="90" width="520" height="180" rx="20" fill="#16253e"/>
+  <text x="110" y="145" fill="#59d0ff" font-family="Segoe UI, Arial" font-size="24">AI-powered study planner</text>
+  <text x="110" y="190" fill="#f3f7ff" font-family="Segoe UI, Arial" font-size="42">StudySprint Coach</text>
+  <text x="110" y="235" fill="#9ab0d5" font-family="Segoe UI, Arial" font-size="22">Turn deadlines into calm, step-by-step study plans.</text>
+  <rect x="680" y="90" width="420" height="240" rx="20" fill="#16253e"/>
+  <text x="720" y="145" fill="#f3f7ff" font-family="Segoe UI, Arial" font-size="28">Plan your next study session</text>
+  <rect x="720" y="185" width="330" height="38" rx="10" fill="#243b58"/>
+  <rect x="720" y="240" width="220" height="38" rx="10" fill="#243b58"/>
+  <rect x="720" y="295" width="170" height="42" rx="10" fill="#59d0ff"/>
+  <rect x="80" y="360" width="500" height="220" rx="20" fill="#16253e"/>
+  <text x="110" y="410" fill="#f3f7ff" font-family="Segoe UI, Arial" font-size="28">Generated plan</text>
+  <text x="110" y="455" fill="#9ab0d5" font-family="Segoe UI, Arial" font-size="20">• Set a 45-minute focus block</text>
+  <text x="110" y="490" fill="#9ab0d5" font-family="Segoe UI, Arial" font-size="20">• Review notes before finishing</text>
+  <text x="110" y="525" fill="#9ab0d5" font-family="Segoe UI, Arial" font-size="20">• Leave one next action for tomorrow</text>
+</svg>
