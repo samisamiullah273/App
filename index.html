@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudySprint Coach</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">AI-powered study planner</p>
+          <h1>StudySprint Coach</h1>
+          <p class="hero-copy">
+            Turn a stressful deadline into a calm, realistic plan. This app helps students turn their workload into focused study blocks, a momentum tracker, and a coach-style pep talk.
+          </p>
+        </div>
+        <div class="hero-card">
+          <h2>Why it exists</h2>
+          <p>
+            Students often know what they need to do but struggle to turn it into a plan. StudySprint Coach turns fragmented tasks into steps that feel doable.
+          </p>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel">
+          <h2>Plan your next study session</h2>
+          <form id="planner-form">
+            <label>
+              Course or subject
+              <input type="text" id="course" name="course" placeholder="e.g. Data Structures" required />
+            </label>
+            <label>
+              Deadline
+              <input type="date" id="deadline" name="deadline" required />
+            </label>
+            <label>
+              Current workload
+              <select id="workload" name="workload">
+                <option value="light">Light</option>
+                <option value="medium" selected>Medium</option>
+                <option value="heavy">Heavy</option>
+              </select>
+            </label>
+            <label>
+              Focus level
+              <select id="focus" name="focus">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+            <label>
+              Energy today
+              <select id="energy" name="energy">
+                <option value="low">Low</option>
+                <option value="steady" selected>Steady</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+            <label>
+              What matters most?
+              <textarea id="goal" name="goal" rows="3" placeholder="Example: finish the coding assignment and review the lecture notes"></textarea>
+            </label>
+            <button type="submit">Generate study plan</button>
+          </form>
+        </section>
+
+        <section class="panel results-panel">
+          <div id="result-summary" class="result-card">
+            <p class="eyebrow">Your generated plan</p>
+            <h3>Nothing generated yet</h3>
+            <p>Fill out the form to create a study plan and AI coach message.</p>
+          </div>
+
+          <div id="ai-coach" class="coach-card">
+            <h3>AI coach guidance</h3>
+            <p class="coach-placeholder">Your plan will appear here with a short coaching message.</p>
+          </div>
+
+          <div class="instructions-card">
+            <h3>AI instructions behind the feature</h3>
+            <p id="instructions-text"></p>
+          </div>
+        </section>
+      </main>
+
+      <section class="panel saved-plans-panel">
+        <div class="saved-header">
+          <h2>Saved plans</h2>
+          <button id="clear-saved" class="ghost-button" type="button">Clear all</button>
+        </div>
+        <div id="saved-plans" class="saved-plans"></div>
+      </section>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

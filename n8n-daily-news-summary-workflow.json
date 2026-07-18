@@ -1,0 +1,125 @@
+{
+  "name": "Daily News Summary + AI Email Alert",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "triggerTimes": [
+          {
+            "hour": "8",
+            "minute": "0"
+          }
+        ]
+      },
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "id": "1"
+    },
+    {
+      "parameters": {
+        "url": "https://api.spaceflightnewsapi.net/v3/articles?_limit=5",
+        "responseFormat": "json",
+        "jsonParameters": true,
+        "options": {
+          "throwOnNon200Response": true
+        }
+      },
+      "name": "Fetch Latest News",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "id": "2"
+    },
+    {
+      "parameters": {
+        "functionCode": "const summary = items.map(item => {\n  const title = item.json.title || 'No title';\n  const summaryText = item.json.summary || item.json.newsSite || '';\n  const url = item.json.url || '';\n  return `Title: ${title}\nSummary: ${summaryText}\nURL: ${url}`;\n}).join('\n\n');\nreturn [{ json: { aggregatedNews: summary } }];"
+      },
+      "name": "Aggregate News",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "id": "3"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "temperature": 0.7,
+        "maxTokens": 450,
+        "prompt": "Summarize the following news items into a short daily digest for email. Include one recommended action and keep the message concise:\n\n{{$json[\"aggregatedNews\"]}}\n\nOutput a single paragraph summary followed by a short action item.",
+        "responseFormat": "text"
+      },
+      "name": "AI Summarize",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [850, 300],
+      "id": "4",
+      "credentials": {
+        "openAIApi": "OpenAI API Key"
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "n8n@example.com",
+        "toEmail": "your-email@example.com",
+        "subject": "Daily AI News Summary",
+        "text": "Here is today\u2019s AI-generated news digest:\n\n{{$node[\"AI Summarize\"].json[\"text\"]}}"
+      },
+      "name": "Send Digest Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [1050, 300],
+      "id": "5",
+      "credentials": {
+        "smtp": "SMTP Credentials"
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch Latest News",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Latest News": {
+      "main": [
+        [
+          {
+            "node": "Aggregate News",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate News": {
+      "main": [
+        [
+          {
+            "node": "AI Summarize",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Summarize": {
+      "main": [
+        [
+          {
+            "node": "Send Digest Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

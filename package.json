@@ -1,0 +1,9 @@
+{
+  "name": "studysprint-coach",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A student-focused study planning app with an AI-style coaching experience.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
